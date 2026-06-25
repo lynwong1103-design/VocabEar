@@ -84,6 +84,13 @@ Page({
       freqLabel: freqLabel || '',
       isLast: (words.length || 0) <= 1
     })
+    
+    // 注册音频播完回调（iOS 链式播放）
+    tts.setOnEnded(() => {
+      if (this.data.status === 'playing') {
+        this.waitAudioEnded()
+      }
+    })
   },
 
   onUnload() {
@@ -151,10 +158,10 @@ Page({
       countdown: this.data.pauseSeconds
     })
 
-    // 播放发音
-    this.playSound(word.en)
-
-    // 开始倒计时
+    // 播放发音 - 首次是用户点击，后续靠 onEnded 链式触发
+    tts.play(word.en)
+    
+    // 倒计时只更新UI，不触发播放
     this.startCountdown()
   },
 
@@ -164,21 +171,31 @@ Page({
     let remaining = this.data.pauseSeconds
     this.setData({ countdown: remaining })
 
-    // 每秒更新倒计时
     this.countdownTimer = setInterval(() => {
       remaining--
       this.setData({ countdown: remaining })
 
       if (remaining <= 3 && remaining > 0) {
-        // 最后3秒振动提示
         wx.vibrateShort({ type: 'light' }).catch(() => {})
       }
 
       if (remaining <= 0) {
         this.clearTimers()
-        this.nextWord()
+        // 倒计时结束，但需要等音频播完（onEnded）才播下一个
+        // 如果音频已经播完了，直接进下一个
+        this.waitAudioEnded()
       }
     }, 1000)
+  },
+
+  // 音频播完后的回调（由 tts.js 的 onEnded 调用）
+  waitAudioEnded() {
+    if (this.data.countdown <= 0) {
+      // 倒计时已结束，直接播下一个
+      this.nextWord()
+    }
+    // 如果倒计时还没结束，等倒计时结束再播下一个
+    // 倒计时结束时会再调 waitAudioEnded
   },
 
   nextWord() {
