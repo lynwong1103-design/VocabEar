@@ -1,0 +1,160 @@
+/* 复习页样式 */
+.review-container {
+  min-height: 100vh;
+  padding: 30rpx;
+}
+
+.review-header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.review-title {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: block;
+}
+
+.review-count {
+  font-size: 26rpx;
+  color: var(--text-light);
+  margin-top: 10rpx;
+  display: block;
+}
+
+/* 卡片 */
+.card-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.flash-card {
+  width: 560rpx;
+  height: 400rpx;
+  perspective: 1000rpx;
+  margin-bottom: 40rpx;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flash-card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 24rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+}
+
+.card-front {
+  background: var(--bg-card);
+}
+
+.card-back {
+  background: var(--primary);
+  color: #fff;
+  transform: rotateY(180deg);
+}
+
+.sound-btn-sm {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  font-size: 36rpx;
+}
+
+.card-zh {
+  font-size: 44rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 20rpx;
+}
+
+.card-tip {
+  font-size: 24rpx;
+  color: var(--text-light);
+}
+
+.card-en {
+  font-size: 48rpx;
+  font-weight: 700;
+  margin-bottom: 16rpx;
+}
+
+.card-phonetic {
+  font-size: 28rpx;
+  opacity: 0.8;
+}
+
+/* 按钮 */
+.card-actions {
+  display: flex;
+  width: 100%;
+  gap: 20rpx;
+  margin-bottom: 30rpx;
+}
+
+.card-actions button {
+  flex: 1;
+}
+
+/* 导航点 */
+.card-nav {
+  display: flex;
+  justify-content: center;
+  gap: 12rpx;
+}
+
+.nav-dot {
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background: var(--border);
+}
+
+.nav-dot.active {
+  background: var(--primary);
+  width: 32rpx;
+  border-radius: 8rpx;
+}
+
+/* 空状态 */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.empty-icon {
+  font-size: 96rpx;
+  margin-bottom: 24rpx;
+}
+
+.empty-text {
+  font-size: 30rpx;
+  color: var(--text-light);
+  text-align: center;
+}

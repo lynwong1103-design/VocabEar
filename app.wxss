@@ -1,0 +1,127 @@
+/* 全局样式 — 清爽学术蓝主题 */
+
+/* 主题色变量 */
+page {
+  --primary: #4A90D9;
+  --primary-light: #6BA3E0;
+  --primary-dark: #357ABD;
+  --primary-bg: #EDF3FA;
+  --success: #52C41A;
+  --danger: #FF4D4F;
+  --warning: #FAAD14;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-light: #999999;
+  --bg-page: #F5F7FA;
+  --bg-card: #FFFFFF;
+  --border: #E8ECF1;
+  --shadow: 0 2px 8px rgba(74, 144, 217, 0.08);
+
+  font-size: 28rpx;
+  color: var(--text-primary);
+  background: var(--bg-page);
+  font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+}
+
+/* 通用容器 */
+.page-container {
+  min-height: 100vh;
+  padding: 20rpx 30rpx 30rpx;
+  box-sizing: border-box;
+}
+
+/* 卡片 */
+.card {
+  background: var(--bg-card);
+  border-radius: 16rpx;
+  padding: 30rpx;
+  box-shadow: var(--shadow);
+  margin-bottom: 20rpx;
+}
+
+/* 按钮 — 主色 */
+.btn-primary {
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50rpx;
+  padding: 24rpx 48rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: none;
+  transition: opacity 0.2s;
+}
+
+.btn-primary:active {
+  opacity: 0.8;
+}
+
+/* 按钮 — 次要 */
+.btn-secondary {
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 50rpx;
+  padding: 24rpx 48rpx;
+  font-size: 30rpx;
+  text-align: center;
+  border: 2rpx solid var(--primary);
+}
+
+.btn-secondary:active {
+  opacity: 0.8;
+}
+
+/* 输入框 */
+.input-field {
+  width: 100%;
+  padding: 24rpx 30rpx;
+  border: 2rpx solid var(--border);
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  background: #FAFBFC;
+  box-sizing: border-box;
+}
+
+.input-field:focus {
+  border-color: var(--primary);
+  background: #fff;
+}
+
+/* 标签 */
+.tag {
+  display: inline-block;
+  padding: 8rpx 20rpx;
+  border-radius: 30rpx;
+  font-size: 24rpx;
+  background: var(--primary-bg);
+  color: var(--primary);
+  margin: 6rpx;
+}
+
+/* 弹性布局工具 */
+.flex-row { display: flex; flex-direction: row; align-items: center; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.flex-between { display: flex; align-items: center; justify-content: space-between; }
+.flex-1 { flex: 1; }
+
+/* 文本工具 */
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-light { color: var(--text-light); }
+.text-center { text-align: center; }
+.text-bold { font-weight: 600; }
+.text-sm { font-size: 24rpx; }
+.text-lg { font-size: 32rpx; }
+.text-xl { font-size: 36rpx; }
+.text-xxl { font-size: 48rpx; }
+
+/* 间距 */
+.mt-10 { margin-top: 10rpx; }
+.mt-20 { margin-top: 20rpx; }
+.mt-30 { margin-top: 30rpx; }
+.mb-20 { margin-bottom: 20rpx; }
+.mb-30 { margin-bottom: 30rpx; }
+.mr-10 { margin-right: 10rpx; }
+.mr-20 { margin-right: 20rpx; }
+.p-20 { padding: 20rpx; }
+.p-30 { padding: 30rpx; }

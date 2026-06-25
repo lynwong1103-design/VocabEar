@@ -1,0 +1,32 @@
+<!-- 结果页 -->
+<view class="result-container">
+  <view class="result-header">
+    <text class="result-icon">✅</text>
+    <text class="result-title">第 {{groupIndex}} 组听写完成！</text>
+    <text class="result-subtitle">本次播放 {{totalWords}} 个单词</text>
+  </view>
+
+  <!-- 单词列表 -->
+  <view class="words-list">
+    <view class="section-label">单词列表</view>
+    <view class="word-card" wx:for="{{words}}" wx:key="en" data-word="{{item}}" bindtap="onPlayWord">
+      <view class="word-index">{{index + 1}}</view>
+      <view class="word-content">
+        <text class="word-en">{{item.en}}</text>
+        <text class="word-zh">{{item.zh}}</text>
+      </view>
+      <text class="bookmark-icon {{getBookmarkStatus(item.en) ? 'bookmarked' : ''}}" 
+        data-en="{{item.en}}" data-zh="{{item.zh}}" catchtap="onToggleBookmark">{{getBookmarkStatus(item.en) ? '❤️' : '🤍'}}</text>
+      <text class="play-icon">🔊</text>
+    </view>
+  </view>
+
+  <!-- 操作 -->
+  <view class="actions">
+    <button class="btn-primary" wx:if="{{hasNextGroup}}" bindtap="onNextGroup">
+      继续下一组 (第 {{groupIndex}} 组) ▶
+    </button>
+    <button class="btn-primary" bindtap="onReplayAll">🔊 全部重播</button>
+    <button class="btn-secondary" bindtap="onGoHome">返回首页</button>
+  </view>
+</view>

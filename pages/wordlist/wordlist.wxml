@@ -1,0 +1,71 @@
+<!-- 词库页 -->
+<view class="wordlist-container">
+  <!-- 搜索框 -->
+  <view class="search-box">
+    <input class="search-input" placeholder="搜索 5252 个雅思词汇..." placeholder-style="color:#CCCCCC;font-size:28rpx;"
+      value="{{keyword}}" bindinput="onSearch" type="text" />
+    <text class="search-icon">🔍</text>
+  </view>
+
+  <!-- 未搜索时显示字母索引 -->
+  <view wx:if="{{!keyword}}" class="letters-section">
+    <!-- 字母索引 -->
+    <scroll-view class="letter-bar" scroll-x enhanced show-scrollbar="{{false}}">
+      <view class="letter-item {{activeLetter === 'all' ? 'active' : ''}}" 
+        data-letter="all" bindtap="onSelectLetter">All</view>
+      <view class="letter-item {{activeLetter === item.key ? 'active' : ''}}"
+        wx:for="{{letters}}" wx:key="key" 
+        data-letter="{{item.key}}" bindtap="onSelectLetter">{{item.key}}</view>
+    </scroll-view>
+
+    <!-- 单词列表 -->
+    <view wx:if="{{filteredWords.length > 0}}">
+      <!-- 字母头部（含听写按钮） -->
+      <view class="letter-header" wx:if="{{activeLetter && activeLetter !== 'all'}}">
+        <view class="letter-header-left">
+          <text class="letter-badge">{{activeLetter}}</text>
+          <text class="letter-word-count">{{filteredWords.length}} 词</text>
+        </view>
+        <button class="btn-primary letter-dictate-btn" bindtap="onDictateLetter">🔊 听写本组</button>
+      </view>
+
+      <view wx:else class="word-count">{{activeLetter || '全部'}} · {{filteredWords.length}} 词</view>
+      <view class="word-item" wx:for="{{displayWords}}" wx:key="en" 
+        bindtap="onWordDetail" data-word="{{item}}">
+        <view class="word-info">
+          <text class="word-en">{{item.en}}</text>
+          <text class="word-zh">{{item.zh}}</text>
+        </view>
+        <text class="word-status">{{getWordStatus(item.en)}}</text>
+      </view>
+      <!-- 加载更多 -->
+      <view class="load-more" wx:if="{{hasMore}}" bindtap="loadMore">
+        <text class="load-more-text">加载更多 ({{filteredWords.length - displayWords.length}} 词待加载)</text>
+      </view>
+    </view>
+
+    <!-- 初始状态 -->
+    <view wx:elif="{{activeLetter === 'all'}}" class="word-count">全部 · {{filteredWords.length}} 词</view>
+    <view wx:elif="{{!activeLetter}}" class="welcome-msg">
+      <text class="welcome-icon">📚</text>
+      <text class="welcome-text">选择上方字母，</text>
+      <text class="welcome-text">或使用搜索查找单词</text>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view wx:else class="search-results">
+    <view class="word-count">找到 {{filteredWords.length}} 个结果</view>
+    <view class="word-item" wx:for="{{filteredWords}}" wx:key="en" 
+      bindtap="onWordDetail" data-word="{{item}}">
+      <view class="word-info">
+        <text class="word-en">{{item.en}}</text>
+        <text class="word-zh">{{item.zh}}</text>
+      </view>
+      <text class="word-status">{{getWordStatus(item.en)}}</text>
+    </view>
+    <view wx:if="{{filteredWords.length === 0}}" class="no-result">
+      <text>未找到匹配的单词</text>
+    </view>
+  </view>
+</view>

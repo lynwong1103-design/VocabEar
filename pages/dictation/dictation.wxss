@@ -1,0 +1,250 @@
+/* 听写页样式 */
+.dictation-container {
+  min-height: 100vh;
+  padding: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ====== Ready ====== */
+.ready-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ready-card {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.ready-icon {
+  font-size: 96rpx;
+  display: block;
+  margin-bottom: 24rpx;
+}
+
+.ready-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 16rpx;
+}
+
+.ready-info {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  margin-bottom: 12rpx;
+}
+
+/* 停顿秒数选择器 */
+.pause-picker {
+  margin-bottom: 50rpx;
+  text-align: center;
+}
+
+.pause-label {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 16rpx;
+}
+
+.pause-picker .option-row {
+  display: flex;
+  gap: 20rpx;
+  justify-content: center;
+}
+
+.pause-picker .option-item {
+  padding: 18rpx 40rpx;
+  border-radius: 12rpx;
+  font-size: 28rpx;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 2rpx solid var(--border);
+  text-align: center;
+  min-width: 120rpx;
+}
+
+.pause-picker .option-item.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.big-btn {
+  width: 400rpx;
+  font-size: 34rpx;
+  padding: 28rpx 0;
+}
+
+/* ====== Playing ====== */
+.playing-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 进度条 */
+.progress-section {
+  margin-bottom: 40rpx;
+}
+
+.progress-bar {
+  height: 8rpx;
+  background: var(--border);
+  border-radius: 4rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--primary);
+  border-radius: 4rpx;
+  transition: width 0.3s;
+}
+
+.progress-text {
+  font-size: 24rpx;
+  color: var(--text-light);
+  text-align: right;
+  display: block;
+}
+
+/* 播放区域 */
+.play-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.play-card {
+  text-align: center;
+  position: relative;
+}
+
+/* 喇叭按钮 */
+.speaker-btn {
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 40rpx;
+  box-shadow: 0 4px 20px rgba(74, 144, 217, 0.2);
+}
+
+.speaker-btn:active {
+  transform: scale(0.95);
+}
+
+.speaker-icon {
+  font-size: 80rpx;
+}
+
+/* 播放脉冲动画 */
+.speaker-btn.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 4px 20px rgba(74, 144, 217, 0.2); }
+  50% { box-shadow: 0 4px 40px rgba(74, 144, 217, 0.5); }
+  100% { box-shadow: 0 4px 20px rgba(74, 144, 217, 0.2); }
+}
+
+/* 倒计时 */
+.countdown-section {
+  margin-bottom: 30rpx;
+}
+
+.countdown-ring {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  border: 6rpx solid var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16rpx;
+}
+
+.countdown-num {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.countdown-num.urgent {
+  color: var(--danger);
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+.countdown-label {
+  font-size: 26rpx;
+  color: var(--text-light);
+}
+
+/* 暂停状态 */
+.paused-overlay {
+  margin-bottom: 30rpx;
+}
+
+.paused-text {
+  font-size: 36rpx;
+  font-weight: 600;
+  color: var(--warning);
+}
+
+/* 进度圆点 */
+.word-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8rpx;
+  flex-wrap: wrap;
+  max-width: 500rpx;
+  margin: 0 auto;
+}
+
+.dot {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  background: var(--border);
+  transition: all 0.3s;
+}
+
+.dot.played {
+  background: var(--primary);
+}
+
+.dot.current {
+  background: var(--primary);
+  transform: scale(1.4);
+}
+
+/* 控制栏 */
+.control-bar {
+  display: flex;
+  gap: 20rpx;
+  padding: 20rpx 0;
+}
+
+.control-bar button {
+  flex: 1;
+}

@@ -1,0 +1,116 @@
+/* 结果页样式 */
+.result-container {
+  min-height: 100vh;
+  padding: 40rpx 30rpx 30rpx;
+}
+
+/* 头部 */
+.result-header {
+  text-align: center;
+  margin-bottom: 40rpx;
+}
+
+.result-icon {
+  font-size: 80rpx;
+  display: block;
+  margin-bottom: 16rpx;
+}
+
+.result-title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.result-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-light);
+  margin-top: 10rpx;
+}
+
+/* 列表标题 */
+.section-label {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-bottom: 16rpx;
+}
+
+/* 单词卡片 */
+.words-list {
+  margin-bottom: 40rpx;
+}
+
+.word-card {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border-radius: 14rpx;
+  padding: 24rpx 26rpx;
+  margin-bottom: 10rpx;
+  box-shadow: var(--shadow);
+}
+
+.word-card:active {
+  opacity: 0.8;
+}
+
+.word-index {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-size: 24rpx;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20rpx;
+  flex-shrink: 0;
+}
+
+.word-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.word-en {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.word-zh {
+  display: block;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-top: 4rpx;
+}
+
+.play-icon {
+  font-size: 32rpx;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+/* 收藏按钮 */
+.bookmark-icon {
+  font-size: 30rpx;
+  margin-left: 12rpx;
+  flex-shrink: 0;
+  padding: 8rpx;
+}
+
+/* 操作按钮 */
+.actions {
+  padding: 10rpx 0 40rpx;
+}
+
+.actions button {
+  width: 100%;
+  margin-bottom: 20rpx;
+}

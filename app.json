@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/today/today",
+    "pages/wordlist/wordlist",
+    "pages/review/review",
+    "pages/dictation/dictation",
+    "pages/result/result",
+    "pages/ordercenter/ordercenter"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#4A90D9",
+    "navigationBarTitleText": "VocabEar",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#F5F7FA",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4A90D9",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/wordlist/wordlist",
+        "iconPath": "images/wordlist.png",
+        "selectedIconPath": "images/wordlist_active.png",
+        "text": "词库"
+      },
+      {
+        "pagePath": "pages/review/review",
+        "iconPath": "images/review.png",
+        "selectedIconPath": "images/review_active.png",
+        "text": "复习"
+      }
+    ]
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

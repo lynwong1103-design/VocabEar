@@ -1,0 +1,18 @@
+<view class="empty-page">
+  <text class="empty-icon">📭</text>
+  <text class="empty-text">暂无订单</text>
+  <text class="empty-tip">本工具无付费功能</text>
+</view>
+
+<style>
+.empty-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.empty-icon { font-size: 80rpx; display: block; margin-bottom: 20rpx; }
+.empty-text { font-size: 32rpx; color: #333; display: block; }
+.empty-tip { font-size: 26rpx; color: #999; margin-top: 10rpx; display: block; }
+</style>

@@ -1,0 +1,26 @@
+<view class="today-container">
+  <view class="today-header">
+    <text class="today-title">今日学习记录</text>
+    <text class="today-count">共 {{words.length}} 词</text>
+  </view>
+
+  <view wx:if="{{words.length === 0}}" class="empty-state">
+    <text class="empty-icon">📭</text>
+    <text class="empty-text">今天还没有学习记录</text>
+    <text class="empty-tip">去首页开始听写吧</text>
+  </view>
+
+  <view wx:else class="word-list">
+    <view class="word-item" wx:for="{{words}}" wx:key="en" data-word="{{item.en}}" bindtap="onPlay">
+      <view class="word-left">
+        <text class="word-index">{{index + 1}}</text>
+        <text class="word-en">{{item.en}}</text>
+      </view>
+      <text class="play-icon">🔊</text>
+    </view>
+  </view>
+
+  <view class="action-bar" wx:if="{{words.length > 0}}">
+    <button class="btn-primary" bindtap="onPlayAll">🔊 全部播放</button>
+  </view>
+</view>

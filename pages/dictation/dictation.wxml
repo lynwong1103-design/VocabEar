@@ -1,0 +1,75 @@
+<!-- 听写页 -->
+<view class="dictation-container">
+
+  <!-- ====== 就绪状态 ====== -->
+  <view wx:if="{{status === 'ready'}}" class="ready-section">
+    <view class="ready-card">
+      <text class="ready-icon">🎧</text>
+      <text class="ready-title">第 {{groupIndex}} / {{groupTotal}} 组</text>
+      <text class="ready-info">共 {{totalWords}} 词 · {{freqLabel}}</text>
+    </view>
+
+    <!-- 停顿秒数选择 -->
+    <view class="pause-picker">
+      <text class="pause-label">每词停顿</text>
+      <view class="option-row">
+        <view class="option-item {{pauseSeconds === 5 ? 'active' : ''}}" 
+          bindtap="onSetPause" data-pause="5">5秒</view>
+        <view class="option-item {{pauseSeconds === 10 ? 'active' : ''}}" 
+          bindtap="onSetPause" data-pause="10">10秒</view>
+        <view class="option-item {{pauseSeconds === 30 ? 'active' : ''}}" 
+          bindtap="onSetPause" data-pause="30">30秒</view>
+      </view>
+    </view>
+
+    <button class="btn-primary big-btn" bindtap="onStart">开始听写 🎯</button>
+  </view>
+
+  <!-- ====== 听写中 / 暂停 ====== -->
+  <view wx:elif="{{status === 'playing' || status === 'paused'}}" class="playing-section">
+    <!-- 进度 -->
+    <view class="progress-section">
+      <view class="progress-bar">
+        <view class="progress-fill" style="width: {{progressPercent}}%"></view>
+      </view>
+      <text class="progress-text">{{currentIndex + 1}} / {{totalWords}}</text>
+    </view>
+
+    <!-- 播放区域 -->
+    <view class="play-area">
+      <view class="play-card">
+        <!-- 大喇叭图标 -->
+        <view class="speaker-btn {{isPlaying ? 'pulse' : ''}}" bindtap="onReplay">
+          <text class="speaker-icon">🔊</text>
+        </view>
+
+        <!-- 倒计时 -->
+        <view class="countdown-section" wx:if="{{status === 'playing'}}">
+          <view class="countdown-ring">
+            <text class="countdown-num {{countdown <= 3 ? 'urgent' : ''}}">{{countdown}}</text>
+          </view>
+          <text class="countdown-label">秒后播放下一个</text>
+        </view>
+
+        <!-- 暂停状态 -->
+        <view wx:if="{{status === 'paused'}}" class="paused-overlay">
+          <text class="paused-text">已暂停</text>
+        </view>
+
+        <!-- 进度指示 -->
+        <view class="word-dots">
+          <view class="dot {{i <= currentIndex ? 'played' : ''}} {{i === currentIndex + 1 ? 'current' : ''}}"
+            wx:for="{{totalWords}}" wx:key="*this"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 控制按钮 -->
+    <view class="control-bar">
+      <button class="btn-secondary" wx:if="{{status === 'playing'}}" bindtap="onPause">⏸ 暂停</button>
+      <button class="btn-primary" wx:if="{{status === 'paused'}}" bindtap="onResume">▶ 继续</button>
+      <button class="btn-primary" bindtap="onReplay">🔊 重播</button>
+    </view>
+  </view>
+
+</view>

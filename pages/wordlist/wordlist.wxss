@@ -1,0 +1,201 @@
+/* 词库页样式 */
+.wordlist-container {
+  min-height: 100vh;
+  padding: 20rpx 20rpx;
+}
+
+/* 搜索框 */
+.search-box {
+  position: relative;
+  margin-bottom: 20rpx;
+  padding: 0;
+}
+
+.search-input {
+  width: 100%;
+  height: 80rpx;
+  padding: 0 30rpx 0 80rpx;
+  border: 2rpx solid var(--primary-light);
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  color: #333333;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.search-input:focus {
+  border-color: var(--primary);
+}
+
+.search-icon {
+  position: absolute;
+  left: 28rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 36rpx;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 字母索引栏 */
+.letter-bar {
+  white-space: nowrap;
+  padding: 12rpx 0;
+  margin-bottom: 20rpx;
+}
+
+.letter-item {
+  display: inline-block;
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 26rpx;
+  font-weight: 600;
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  margin-right: 10rpx;
+  border: 2rpx solid var(--border);
+  overflow: hidden;
+}
+
+.letter-item.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* 字母头部（含听写按钮） */
+.letter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+
+.letter-header-left {
+  display: flex;
+  align-items: center;
+}
+
+.letter-badge {
+  width: 56rpx;
+  height: 56rpx;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 50%;
+  font-size: 30rpx;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16rpx;
+}
+
+.letter-word-count {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.letter-dictate-btn {
+  font-size: 26rpx !important;
+  padding: 16rpx 28rpx !important;
+  min-width: auto !important;
+  flex-shrink: 0;
+}
+
+/* 单词计数 */
+.word-count {
+  font-size: 24rpx;
+  color: var(--text-light);
+  margin-bottom: 16rpx;
+}
+
+/* 单词列表 */
+.word-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--bg-card);
+  border-radius: 12rpx;
+  padding: 22rpx 26rpx;
+  margin-bottom: 10rpx;
+  box-shadow: var(--shadow);
+}
+
+.word-item:active {
+  opacity: 0.8;
+}
+
+.word-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.word-en {
+  display: block;
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.word-zh {
+  display: block;
+  font-size: 26rpx;
+  color: var(--text-secondary);
+  margin-top: 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.word-status {
+  font-size: 32rpx;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+/* 加载更多 */
+.load-more {
+  text-align: center;
+  padding: 30rpx 0;
+}
+
+.load-more-text {
+  font-size: 26rpx;
+  color: var(--primary);
+  padding: 16rpx 40rpx;
+  border: 2rpx solid var(--primary);
+  border-radius: 40rpx;
+}
+
+/* 欢迎消息 */
+.welcome-msg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100rpx 0;
+}
+
+.welcome-icon {
+  font-size: 80rpx;
+  margin-bottom: 20rpx;
+}
+
+.welcome-text {
+  font-size: 28rpx;
+  color: var(--text-light);
+}
+
+/* 无结果 */
+.no-result {
+  text-align: center;
+  padding: 60rpx 0;
+  font-size: 28rpx;
+  color: var(--text-light);
+}

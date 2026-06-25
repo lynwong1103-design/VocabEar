@@ -1,0 +1,62 @@
+<!-- 首页 -->
+<view class="home-container">
+  <!-- 大标题 -->
+  <view class="hero-section">
+    <text class="hero-title">📖 VocabEar</text>
+    <text class="hero-subtitle">逐组听写 · 5252 词</text>
+  </view>
+
+  <!-- 词库统计 -->
+  <view class="stats-card">
+    <view class="stat-item" bindtap="onBrowseAll">
+      <text class="stat-num">{{totalWords}}</text>
+      <text class="stat-label">总词数</text>
+    </view>
+    <view class="stat-item" bindtap="onTodayLearned">
+      <text class="stat-num">{{todayLearned}}</text>
+      <text class="stat-label">今日听过</text>
+    </view>
+    <view class="stat-item" bindtap="onShowStreak">
+      <text class="stat-num">{{streakDays}}</text>
+      <text class="stat-label">连续打卡</text>
+    </view>
+  </view>
+
+  <!-- 当前组 -->
+  <picker mode="selector" range="{{groupPickerRange}}" value="{{currentGroup}}" bindchange="onPickerChange">
+    <view class="group-card">
+      <view class="group-left">
+        <text class="group-label">当前进度</text>
+        <text class="group-num">第 {{currentGroup + 1}} / {{totalGroups}} 组</text>
+        <text class="group-range">第 {{groupInfo.start}}–{{groupInfo.end}} 词 · {{groupInfo.count}} 词</text>
+        <text class="group-freq">{{freqLabel}}</text>
+      </view>
+      <view class="group-right">
+        <text class="group-progress-text">{{groupProgressPercent}}%</text>
+        <view class="group-progress-bar">
+          <view class="group-progress-fill" style="width: {{groupProgressPercent}}%"></view>
+        </view>
+        <text class="group-change">换组 ›</text>
+      </view>
+    </view>
+  </picker>
+
+  <!-- 开始听写 -->
+  <view class="action-section">
+    <view class="start-card" bindtap="onStartDictation">
+      <text class="start-icon">🎯</text>
+      <text class="start-text">{{freqLabel}} · 第 {{currentGroup + 1}} 组</text>
+      <text class="start-desc">点击开始听写</text>
+    </view>
+  </view>
+
+  <!-- 字母快速导航 -->
+  <view class="section-title">字母索引</view>
+  <view class="alphabet-grid">
+    <view class="alpha-item" wx:for="{{alphabetGroups}}" wx:key="key"
+      data-letter="{{item.key}}" bindtap="onBrowseLetter">
+      <text class="alpha-letter">{{item.key}}</text>
+      <text class="alpha-count">{{item.count}}</text>
+    </view>
+  </view>
+</view>
